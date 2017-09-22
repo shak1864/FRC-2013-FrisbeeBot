@@ -21,6 +21,7 @@ import org.usfirst.frc.team1156.robot.subsystems.Drive;
 public class Robot extends IterativeRobot {
 
 	public static final Drive exampleSubsystem = new Drive();
+	public static final Drive drive = new Drive();
 	public static OI oi;
 
 	Command autonomousCommand;
@@ -104,6 +105,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		drive.drive(oi.getDriverJoystick());
 	}
 
 	/**
