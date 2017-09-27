@@ -22,6 +22,10 @@ public class RobotMap {
 	public static int SHOOTER_WHEEL = 4;
 	
 	
-	public static int PISTON_ONE = 0;
-	public static int PISTON_TWO = 1;
+	public static int PISTON_ONE_A = 0;
+	public static int PISTON_ONE_B = 1;
+	
+	public static int PISTON_TWO_A = 2;
+	public static int PISTON_TWO_B = 2;
+	
 }
