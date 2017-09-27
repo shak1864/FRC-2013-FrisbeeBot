@@ -8,8 +8,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team1156.robot.commands.ExampleCommand;
 import org.usfirst.frc.team1156.robot.subsystems.Drive;
+import org.usfirst.frc.team1156.robot.subsystems.Shooter;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -20,8 +20,8 @@ import org.usfirst.frc.team1156.robot.subsystems.Drive;
  */
 public class Robot extends IterativeRobot {
 
-	public static final Drive exampleSubsystem = new Drive();
 	public static final Drive drive = new Drive();
+	public static final Shooter shooter = new Shooter();
 	public static OI oi;
 
 	Command autonomousCommand;
@@ -34,7 +34,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 	}

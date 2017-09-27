@@ -4,8 +4,10 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team1156.robot.commands.ExampleCommand;
-
+import org.usfirst.frc.team1156.robot.commands.SetHeightHigh;
+import org.usfirst.frc.team1156.robot.commands.SetHeightHighest;
+import org.usfirst.frc.team1156.robot.commands.SetHeightLow;
+import org.usfirst.frc.team1156.robot.commands.SetHeightMid;
 import org.usfirst.frc.team1156.robot.RobotMap;
 import com.walpole.frc.team.robot.lib.RebelTrigger;
 
@@ -45,6 +47,14 @@ public class OI {
 	private Button drLB = new JoystickButton(driverStick, 5 );
 	
 	public OI() {
+		
+		drA.whenPressed(new SetHeightLow());
+		drB.whenPressed(new SetHeightMid());
+		drX.whenPressed(new SetHeightHigh());
+		drY.whenPressed(new SetHeightHighest());
+		
+		
+		
 		
 	}
 	
