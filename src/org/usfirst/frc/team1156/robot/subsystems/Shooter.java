@@ -13,8 +13,10 @@ public class Shooter extends Subsystem {
 	private Victor shooterWheel;
 	private Victor insertExtraVactorHeer;
 	
-	private DoubleSolenoid pistonOne;
-	private DoubleSolenoid pistonTwo;
+	private DoubleSolenoid heightPistonOne;
+	private DoubleSolenoid heightPistonTwo;
+	
+	private DoubleSolenoid shooterPiston;
 	
 //	public enum Height {
 //		LOWLEVEL, MIDLEVEL, HIGHLEVEL, HIGHESTLEVEL
@@ -32,36 +34,47 @@ public class Shooter extends Subsystem {
 		
 		shooterWheel = new Victor(RobotMap.SHOOTER_WHEEL);
 		
-		pistonOne = new DoubleSolenoid(RobotMap.PISTON_ONE_A, RobotMap.PISTON_ONE_B);
-		pistonTwo = new DoubleSolenoid(RobotMap.PISTON_TWO_A, RobotMap.PISTON_TWO_B);
+		heightPistonOne = new DoubleSolenoid(RobotMap.PISTON_ONE_A, RobotMap.PISTON_ONE_B);
+		heightPistonTwo = new DoubleSolenoid(RobotMap.PISTON_TWO_A, RobotMap.PISTON_TWO_B);
 		
-		
+		shooterPiston = new DoubleSolenoid(RobotMap.PISTON_THREE_A, RobotMap.PISTON_THREE_B);
 		
 	}
+	//Commands to shoot frisbee and reset the launcher for another frisbee
+	public void fireFrisbeeLauncher() {
+		shooterPiston.set(Value.kForward);
+	}
 	
+	public void retractFrisbeeLauncher() {
+		shooterPiston.set(Value.kReverse);
+	}
+	
+	//General Frisbee Speed Setter
 	public void setShooterSpeed(double speed) {
 		shooterWheel.set(speed);
 	}
 	
+	
+	//Height Setters for the entire frisbee launcher
 	public void setLowHeight() {
-		pistonOne.set(Value.kReverse);
-		pistonTwo.set(Value.kForward);
+		heightPistonOne.set(Value.kReverse);
+		heightPistonTwo.set(Value.kForward);
 	}
 	
 	
 	public void setMidHeight() {
-		pistonOne.set(Value.kReverse);
-		pistonTwo.set(Value.kReverse);
+		heightPistonOne.set(Value.kReverse);
+		heightPistonTwo.set(Value.kReverse);
 	}
 	
 	public void setHighHeight() {
-		pistonOne.set(Value.kForward);
-		pistonTwo.set(Value.kForward);
+		heightPistonOne.set(Value.kForward);
+		heightPistonTwo.set(Value.kForward);
 	}
 	
 	public void setHighestHeight() {
-		pistonOne.set(Value.kForward);
-		pistonTwo.set(Value.kReverse);
+		heightPistonOne.set(Value.kForward);
+		heightPistonTwo.set(Value.kReverse);
 	}
 	
 //	public void setHeight() {
