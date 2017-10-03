@@ -39,6 +39,12 @@ public class Shooter extends Subsystem {
 		
 		shooterPiston = new DoubleSolenoid(RobotMap.PISTON_THREE_A, RobotMap.PISTON_THREE_B);
 		
+		shooterStartingPositions();
+	}
+	
+	public void shooterStartingPositions() {
+		retractFrisbeeLauncher();
+		setLowHeight();
 	}
 	//Commands to shoot frisbee and reset the launcher for another frisbee
 	public void fireFrisbeeLauncher() {

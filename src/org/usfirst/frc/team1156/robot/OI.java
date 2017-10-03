@@ -4,10 +4,13 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import org.usfirst.frc.team1156.robot.commands.FrisbeeLauncherForwardCommand;
+import org.usfirst.frc.team1156.robot.commands.FrisbeeLauncherReverseCommand;
 import org.usfirst.frc.team1156.robot.commands.SetHeightHigh;
 import org.usfirst.frc.team1156.robot.commands.SetHeightHighest;
 import org.usfirst.frc.team1156.robot.commands.SetHeightLow;
 import org.usfirst.frc.team1156.robot.commands.SetHeightMid;
+import org.usfirst.frc.team1156.robot.commands.SetShooterSpeed;
 import org.usfirst.frc.team1156.robot.RobotMap;
 import com.walpole.frc.team.robot.lib.RebelTrigger;
 
@@ -53,7 +56,13 @@ public class OI {
 		drX.whenPressed(new SetHeightHigh());
 		drY.whenPressed(new SetHeightHighest());
 		
+		opA.whenPressed(new SetShooterSpeed(0.7));
+		opB.whenPressed(new SetShooterSpeed(0.8));
+		opX.whenPressed(new SetShooterSpeed(0.9));
+		opY.whenPressed(new SetShooterSpeed(1));
 		
+		opBumperL.whenPressed(new FrisbeeLauncherForwardCommand());
+		opBumperL.whenReleased(new FrisbeeLauncherReverseCommand());
 		
 		
 	}
