@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Shooter extends Subsystem {
 	
 	private Victor shooterWheel;
-	private Victor insertExtraVactorHeer;
 	
 	private DoubleSolenoid heightPistonOne;
 	private DoubleSolenoid heightPistonTwo;
