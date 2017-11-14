@@ -24,6 +24,9 @@ public class RobotMap {
 	//Shooter Motor
 	public static int SHOOTER_WHEEL = 4;
 	
+	//Frisbee Collector
+	public static int COLLECTOR_MECHANISM = 5;
+	
 	//Shooter Height Pistons
 	public static int PISTON_ONE_A = 0;
 	public static int PISTON_ONE_B = 1;

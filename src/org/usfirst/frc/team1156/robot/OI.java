@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import org.usfirst.frc.team1156.robot.commands.CollectorIntakeCommand;
+import org.usfirst.frc.team1156.robot.commands.CollectorOutputCommand;
 import org.usfirst.frc.team1156.robot.commands.FrisbeeLauncherForwardCommand;
 import org.usfirst.frc.team1156.robot.commands.FrisbeeLauncherReverseCommand;
 import org.usfirst.frc.team1156.robot.commands.SetHeightHigh;
@@ -63,6 +65,9 @@ public class OI {
 		
 		opBumperL.whenPressed(new FrisbeeLauncherForwardCommand());
 		opBumperL.whenReleased(new FrisbeeLauncherReverseCommand());
+		
+		opStart.toggleWhenPressed(new CollectorIntakeCommand());
+		opBack.toggleWhenPressed(new CollectorOutputCommand());
 		
 		
 	}
