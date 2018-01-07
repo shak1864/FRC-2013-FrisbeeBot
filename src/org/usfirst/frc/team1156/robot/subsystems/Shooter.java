@@ -16,6 +16,7 @@ public class Shooter extends Subsystem {
 	private DoubleSolenoid heightPistonTwo;
 	
 	private DoubleSolenoid shooterPiston;
+	private DoubleSolenoid frisbeeFlipper;
 	
 //	public enum Height {
 //		LOWLEVEL, MIDLEVEL, HIGHLEVEL, HIGHESTLEVEL
@@ -38,20 +39,31 @@ public class Shooter extends Subsystem {
 		
 		shooterPiston = new DoubleSolenoid(RobotMap.PISTON_THREE_A, RobotMap.PISTON_THREE_B);
 		
+		frisbeeFlipper = new DoubleSolenoid(RobotMap.PISTON_FOUR_A, RobotMap.PISTON_FOUR_B);
+		
 		shooterStartingPositions();
 	}
 	
 	public void shooterStartingPositions() {
 		retractFrisbeeLauncher();
 		setLowHeight();
+		retractFrisbeeFlipper();
 	}
 	//Commands to shoot frisbee and reset the launcher for another frisbee
 	public void fireFrisbeeLauncher() {
-		shooterPiston.set(Value.kForward);
+		shooterPiston.set(Value.kReverse);
 	}
 	
 	public void retractFrisbeeLauncher() {
-		shooterPiston.set(Value.kReverse);
+		shooterPiston.set(Value.kForward);
+	}
+	
+	public void retractFrisbeeFlipper() {
+		frisbeeFlipper.set(Value.kReverse);
+	}
+	
+	public void fireFrisbeeFlipper() {
+		frisbeeFlipper.set(Value.kForward);
 	}
 	
 	//General Frisbee Speed Setter
@@ -61,23 +73,23 @@ public class Shooter extends Subsystem {
 	
 	
 	//Height Setters for the entire frisbee launcher
-	public void setLowHeight() {
+	public void setHighestHeight() {
 		heightPistonOne.set(Value.kReverse);
 		heightPistonTwo.set(Value.kForward);
 	}
 	
 	
-	public void setMidHeight() {
+	public void setHighHeight() {
 		heightPistonOne.set(Value.kReverse);
 		heightPistonTwo.set(Value.kReverse);
 	}
 	
-	public void setHighHeight() {
+	public void setMidHeight() {
 		heightPistonOne.set(Value.kForward);
 		heightPistonTwo.set(Value.kForward);
 	}
 	
-	public void setHighestHeight() {
+	public void setLowHeight() {
 		heightPistonOne.set(Value.kForward);
 		heightPistonTwo.set(Value.kReverse);
 	}

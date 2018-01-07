@@ -6,8 +6,10 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team1156.robot.commands.CollectorIntakeCommand;
 import org.usfirst.frc.team1156.robot.commands.CollectorOutputCommand;
+import org.usfirst.frc.team1156.robot.commands.FireFlipperCommand;
 import org.usfirst.frc.team1156.robot.commands.FrisbeeLauncherForwardCommand;
 import org.usfirst.frc.team1156.robot.commands.FrisbeeLauncherReverseCommand;
+import org.usfirst.frc.team1156.robot.commands.RetractFlipperCommand;
 import org.usfirst.frc.team1156.robot.commands.SetHeightHigh;
 import org.usfirst.frc.team1156.robot.commands.SetHeightHighest;
 import org.usfirst.frc.team1156.robot.commands.SetHeightLow;
@@ -53,18 +55,23 @@ public class OI {
 	
 	public OI() {
 		
+		
+		//All names are backward due to a wiring problem. Fix later
 		drA.whenPressed(new SetHeightLow());
 		drB.whenPressed(new SetHeightMid());
 		drX.whenPressed(new SetHeightHigh());
 		drY.whenPressed(new SetHeightHighest());
 		
-		opA.whenPressed(new SetShooterSpeed(0.7));
-		opB.whenPressed(new SetShooterSpeed(0.8));
-		opX.whenPressed(new SetShooterSpeed(0.9));
-		opY.whenPressed(new SetShooterSpeed(1));
+		opA.whenPressed(new SetShooterSpeed(0));
+		opB.whenPressed(new SetShooterSpeed(-0.65));
+		opX.whenPressed(new SetShooterSpeed(-0.85));
+		opY.whenPressed(new SetShooterSpeed(-1));
 		
 		opBumperL.whenPressed(new FrisbeeLauncherForwardCommand());
 		opBumperL.whenReleased(new FrisbeeLauncherReverseCommand());
+		
+		opBumperR.whenPressed(new FireFlipperCommand());
+		opBumperR.whenReleased(new RetractFlipperCommand());
 		
 		opStart.toggleWhenPressed(new CollectorIntakeCommand());
 		opBack.toggleWhenPressed(new CollectorOutputCommand());

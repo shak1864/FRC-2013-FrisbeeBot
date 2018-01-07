@@ -38,4 +38,9 @@ public class RobotMap {
 	public static int PISTON_THREE_A = 4;
 	public static int PISTON_THREE_B = 5;
 	
+	//Frisbee Flipping Piston
+	public static int PISTON_FOUR_A = 6;
+	public static int PISTON_FOUR_B = 7;
+
+	
 }

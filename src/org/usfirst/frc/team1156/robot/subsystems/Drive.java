@@ -54,7 +54,7 @@ public class Drive extends Subsystem {
 	public void drive(Joystick joystick) {
 		double moveValue = 1 * joystick.getRawAxis(RobotMap.JOYSTICK_LEFT_Y);
 		double rotateValue = 0.7 * joystick.getRawAxis(RobotMap.JOYSTICK_RIGHT_X);
-		robotDrive.arcadeDrive(moveValue, rotateValue, true);
+		robotDrive.arcadeDrive(-moveValue, -rotateValue, true);
     }
 
 	@Override
